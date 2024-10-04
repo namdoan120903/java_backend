@@ -1,8 +1,12 @@
+import com.google.gson.Gson;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 class Employee implements Serializable {
   private String name;
@@ -26,6 +30,7 @@ class Employee implements Serializable {
         ", email='" + email + '\'' +
         '}';
   }
+
 }
 public class Serialize {
   public static void serialize(){
@@ -59,7 +64,28 @@ public class Serialize {
   }
 
   public static void main(String[] args) {
-    serialize();
-    deserialize();
+    //serialize();
+    //deserialize();
+    Gson gson = new Gson();
+    Employee employee = new Employee("Nam Doan","5430", 20, "namdoan@");
+    //serialize
+    String json = gson.toJson(employee);
+    System.out.println(json);
+
+    //deserialize
+    Employee employee1 = gson.fromJson(json, Employee.class);
+    System.out.println(employee1);
+    //
+    // Json simple
+    //Json parse String to Json
+    String jsonString = "{\"name\":\"Nam\", \"age\":21, \"city\":\"Ha Noi\"}";
+    JSONParser jsonParser = new JSONParser();
+    try{
+      JSONObject jsonObject = (JSONObject) jsonParser.parse(jsonString);
+      System.out.println("Name " + (String)jsonObject.get("name") );
+    } catch (ParseException e) {
+      throw new RuntimeException(e);
+    }
+
   }
 }

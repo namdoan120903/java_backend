@@ -12,20 +12,20 @@ public class ExceptionDemo {
       int dive = 9/zero;
       System.out.println(dive);
     }catch (ArithmeticException e){
-      System.out.println(e);
+      e.printStackTrace();
     }
 
     try{
       List<String> list = null;
       System.out.println(list.size());
     }catch (NullPointerException e){
-      System.out.println(e);
+      e.printStackTrace();
     }
 
     try{
       FileInputStream inputStream = new FileInputStream("check.txt");
     }catch (FileNotFoundException e){
-      System.out.println(e);
+      e.printStackTrace();
     }
   }
 }

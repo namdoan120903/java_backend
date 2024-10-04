@@ -1,5 +1,9 @@
 package oop;
-class Mobile{
+
+abstract class Device{
+  public abstract void printModel();
+}
+class Mobile extends Device{
   private String manufacturer;
   private String operating_system;
   private String model;

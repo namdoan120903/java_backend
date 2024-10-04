@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 interface SortStrategy{
-  void sort();
+  <T> void sort(List<T> items);
 }
 
 class QuickSort implements SortStrategy{
 
   @Override
-  public void sort() {
+  public <T> void sort(List<T> items) {
     System.out.println("Quick Sort");
   }
 }
@@ -18,7 +18,7 @@ class QuickSort implements SortStrategy{
 class MergeSort implements SortStrategy{
 
   @Override
-  public void sort() {
+  public <T> void sort(List<T> items) {
     System.out.println("Merge Sort");
   }
 }
@@ -26,20 +26,20 @@ class MergeSort implements SortStrategy{
 class BubbleSort implements SortStrategy{
 
   @Override
-  public void sort() {
+  public <T> void sort(List<T> items) {
     System.out.println("Bubble Sort");
   }
 }
 
 class SortList{
   private SortStrategy sortStrategy;
-  List<String> strings = new ArrayList<>();
+  List<String> items = new ArrayList<>();
   public void setSortStrategy(SortStrategy sortStrategy) {
     this.sortStrategy = sortStrategy;
   }
 
   public void sort(){
-    sortStrategy.sort();
+    sortStrategy.sort(items);
   }
 
 }
@@ -53,7 +53,7 @@ public class StrategyPattern {
     SortList sortList= new SortList();
     sortList.setSortStrategy(sort1);
     sortList.sort();
-    sortList.setSortStrategy(sort2);
+    sortList.setSortStrategy(sort2 );
     sortList.sort();
   }
 }
