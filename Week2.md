@@ -52,7 +52,7 @@
     - Tạo ra 2 lớp VietinBank và TpBank ipl Bank ghi đè phương thức getBankName, tạo 1 enum chứa các giá trị mà ngươi dùng ần
     - Tại BankFactory tạo 1 phương thức trả về kiểu Bank truyền vào type, sử dụng switch case để tạo ra lớp đúng với yêu cầu và trả về
     - Khi đó ta che giấu được sự khởi tạo của đối tượng, khi cần 1 đôí tượng Bank với gọi đến phương thức của BankFactory và truyền vào type tương ứng
-![](./Images/factorypattern.png)
+![](src/main/java/Images/factorypattern.png)
 
 ##  Proxy Pattern
     - Proxy Pattern là mẫu thiết kế mà ở đó tất cả các truy cập trực tiếp đến một đối tượng nào đó sẽ được chuyển hướng vào một đối tượng trung gian (Proxy Class)
@@ -63,8 +63,8 @@
     - Khởi tạo interface UserService thực hiện loadData() và insertData(), 2 lớp ipl và proxy triển khai giao diện trên
     - Khi người dùng yêu cầu, 1 đối tượng proxy sẽ được gọi, truyền vào các tham số, vai trò người dùng
     - khi loadData() được gọi, proxy sẽ gọi đến 1 đối tượng userService và gọi đến nó
-    - khi insertData() được gọi, proxy sẽ kiểm tra xem có đúng vai trò là Admin nếu đúng thì mới gọi đến lớp chính, không thì sẽ không cho pheps
-![](./Images/proxypattern.png)
+    - khi insertData() được gọi, proxy sẽ kiểm traru xem có đúng vai trò là Admin nếu đúng thì mới gọi đến lớp chính, không thì sẽ không cho pheps
+![](src/main/java/Images/proxypattern.png)
 
 ## Strategy Pattern
     - Giúp tách rời phần xử lý một chức năng cụ thể ra khỏi đối tượng
@@ -73,4 +73,11 @@
     - Tạo ra interface SortStrategy với pt sort, các thuật toán sort sẽ ipl lại và triển khai theo các của mình
     - Khi sử dụng đối tượng sortList mà muốn sử dụng các phương thức sort khác nhau ta chỉ cần gọi đến phương thức setSort để có thể
     sắp xếp list đã cho theo kiểu sort đã được định nghĩa
-![](./Images/strategypattern.png)
+![](src/main/java/Images/strategypattern.png)
+
+## Serialize
+    - Serialization trong java là một cơ chế để ghi trạng thái của một đối tượng vào một byte stream
+    - Sử dụng để truyền trạng thái của đối tượng qua mạng
+    - Tạo đối tượng Student ipl interface Serialize, đối tượng bây giờ có thể chuyển đồi thành stream
+    - Serialize: Sử dụng ObjectOutputStream và truyên vào đối tượng FileOutputStream để ghi vào file, writeObject() để đọc và ghi đối tượng vào file
+    - Deserialize: Sử dụng ObjectInputStream và truyền vào đối tượng FileInputStream để đọc đối tượng, sử dụng readObject() để đọc và lấy ra đối tượng

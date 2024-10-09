@@ -14,7 +14,7 @@ class WorkThread implements Runnable{
   public void run() {
     System.out.println(Thread.currentThread().getName() + " Start with "+ task);
     try{
-      Thread.sleep(60);
+      Thread.sleep(180);
     }catch (InterruptedException e){
       e.printStackTrace();
     }

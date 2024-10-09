@@ -83,6 +83,7 @@ public class Serialize {
     try{
       JSONObject jsonObject = (JSONObject) jsonParser.parse(jsonString);
       System.out.println("Name " + (String)jsonObject.get("name") );
+      System.out.println(jsonObject.toString());
     } catch (ParseException e) {
       throw new RuntimeException(e);
     }

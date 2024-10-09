@@ -56,7 +56,7 @@
         phương thức static, biến static khác, không thể ghi đè
 ## Biểu đồ UMl cho lớp 
 
-![alt text](Images/uml_week1.png)
+![alt text](src/main/java/Images/uml_week1.png)
 
 ## Đọc ghi File
     - Sử dụng FileInputStream và FileOutputStream để đọc ghi theo byte
